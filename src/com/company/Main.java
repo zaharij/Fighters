@@ -8,12 +8,14 @@ public class Main {
 
     public static void main(String[] args) throws IOException, InterruptedException {
         LinkedList<Fighter> fighters = fighterGenerator(100);
+        Arena arena = new Arena(3000);
         int i = 0;
         while (fighters.size() > 1){
             if (i >= fighters.size() - 1){
                 i = 0;
             }
-            Fighter fighter = new Arena(3000, fighters.remove(i), fighters.remove(i)).startFight();
+            arena.setFighters(fighters.remove(i), fighters.remove(i));
+            Fighter fighter = arena.startFight();
             fighters.addLast(fighter);
             i++;
         }

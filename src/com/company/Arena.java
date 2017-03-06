@@ -11,11 +11,14 @@ public class Arena{
     private int currentFighter;
     private int sleepTime;
 
-    public Arena(int sleepTime, Fighter ... fighters){
+    public Arena(int sleepTime){
+        this.sleepTime = sleepTime;
+    }
+
+    public void setFighters(Fighter ... fighters){
         for (int i = 0; i < fighters.length; i++){
             this.fighters.add(fighters[i]);
         }
-        this.sleepTime = sleepTime;
         Random random = new Random();
         currentFighter = random.nextInt(this.fighters.size());
     }
